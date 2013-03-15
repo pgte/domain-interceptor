@@ -1,4 +1,4 @@
-# Domain Interceptor
+# Domain Interceptor [![Build Status](https://secure.travis-ci.org/pgte/domain-interceptor.png)](http://travis-ci.org/pgte/domain-interceptor)
 
 Turns domains into a relevant event emitters.
 
