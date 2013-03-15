@@ -7,7 +7,6 @@ module.exports =
 function InterceptHttp(addedCallback) {
 
   function onResponse(res) {
-    console.log('gotz response');
     addedCallback(res);
   }
 
