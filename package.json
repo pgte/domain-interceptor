@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Domain events notifier",
   "scripts": {
-    "test": "node tests/create.js"
+    "test": "node tests/intercept.js"
   },
   "repository": {
     "type": "git",
