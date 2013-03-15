@@ -1,0 +1,21 @@
+{
+  "name": "domain-interceptor",
+  "version": "0.0.1",
+  "description": "Domain events notifier",
+  "scripts": {
+    "test": "node tests/create.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pgte/domain-interceptor.git"
+  },
+  "keywords": [
+    "domains",
+    "intercept"
+  ],
+  "author": "pgte",
+  "devDependencies": {
+    "tap": "*"
+  },
+  "license": "MIT"
+}
