@@ -9,7 +9,10 @@ test('intercepts domain creation', function(t) {
   var d;
 
   interceptDomain.on('created', function(_d) {
-    t.equal(d, _d);
+    process.nextTick(function() {
+      t.equal(d, _d);
+    });
+    
   });
 
   d = domain.create();
@@ -21,7 +24,9 @@ test('intercepts event emitter creation inside domain', function(t) {
   var ee;
   
   d.on('added', function(_ee) {
-    t.equal(_ee, ee);
+    process.nextTick(function() {
+      t.equal(_ee, ee);
+    });
   });
 
   d.run(function() {

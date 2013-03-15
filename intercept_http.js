@@ -31,4 +31,6 @@ function InterceptHttp(addedCallback) {
     waitForResponse(req);
     addedCallback(this);
   };
+
+  return oldHttpClientRequest;
 };

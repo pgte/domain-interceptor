@@ -12,11 +12,8 @@ var oldDomain = domain.Domain;
 var Domain =
 domain.Domain =
 function DomainPatched() {
-  var self = this;
   oldDomain.apply(this, arguments);
-  process.nextTick(function() {
-    ee.emit('created', self);
-  });
+  ee.emit('created', this);
 };
 
 Domain.prototype = oldDomain.prototype;

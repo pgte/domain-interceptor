@@ -11,11 +11,9 @@ function added(_domain, ee) {
     _domain = domain.active;
   }
   
-  process.nextTick(function() {
-    _domain.emit('added', ee);
-  });
+  _domain.emit('added', ee);
   
 }
 
 require('./intercept_emitter')(added);
-require('./intercept_http')(added);
+module.exports.httpClientRequest = require('./intercept_http')(added);
