@@ -13,12 +13,12 @@ $ npm install domain-interceptor
 ## Use
 
 ```javascript
-var domainInterceptor = require('domain-interceptor');
+var i = require('domain-interceptor');
 
-interceptor.on('created', function(domain) {
-  console.log('this domain was created somewhere:', domain);
+i.on('created', function(d) {
+  console.log('this domain was created somewhere:', d);
   
-  domain.on('added', function(ee) {
+  d.on('added', function(ee) {
     console.log('someone added an event emitter to this domain!', ee);
   });
 });
