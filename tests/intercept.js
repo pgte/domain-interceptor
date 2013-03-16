@@ -35,6 +35,21 @@ test('intercepts event emitter creation inside domain', function(t) {
 
 });
 
+test('intercepts if emitter is explicitely added to domain', function(t) {
+  t.plan(1);
+  var d = domain.create();
+  var ee;
+  
+  d.on('added', function(_ee) {
+    process.nextTick(function() {
+      t.equal(_ee, ee);
+    });
+  });
+
+  ee = new EE();
+  d.add(ee);
+});
+
 test('does not intercept if event emitter is outside domain', function(t) {
   t.plan(1);
   var d = domain.create();
