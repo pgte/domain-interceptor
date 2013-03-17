@@ -11,7 +11,7 @@ function added(_domain, ee) {
     _domain = domain.active;
   }
   
-  _domain.emit('added', ee);
+  _domain && _domain.emit('added', ee);
   
 }
 
