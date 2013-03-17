@@ -24,8 +24,9 @@ function createDomain(cb) {
   return new Domain(cb);
 };
 
-
+var oldAdd = Domain.prototype.add;
 Domain.prototype.add =
 function add(ee) {
+  oldAdd.apply(this, arguments);
   this.emit('added', ee);
 };
