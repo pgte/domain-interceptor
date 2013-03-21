@@ -1,6 +1,6 @@
 {
   "name": "domain-interceptor",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Domain events notifier",
   "scripts": {
     "test": "node tests/intercept.js"
