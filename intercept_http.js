@@ -1,8 +1,10 @@
 var http = require('http');
+var inherits = require('util').inherits;
 var HttpClientRequest = http.ClientRequest;
 var HttpResponse = http.IncomingMessage;
 var oldHttpRequest = http.request;
-
+var oldHttpClientRequest = http.ClientRequest;
+  
 module.exports =
 function InterceptHttp(addedCallback) {
 
@@ -24,13 +26,16 @@ function InterceptHttp(addedCallback) {
     return req;
   };
 
-  var oldHttpClientRequest = http.ClientRequest;
+
+  var newClientRequest =
   http.ClientRequest =
   function ClientRequestPatched() {
     oldHttpClientRequest.apply(this, arguments);
     waitForResponse(req);
     addedCallback(this);
   };
+
+  inherits(newClientRequest, oldHttpClientRequest);
 
   return oldHttpClientRequest;
 };
