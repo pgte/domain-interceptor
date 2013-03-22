@@ -16,4 +16,4 @@ function added(_domain, ee) {
 }
 
 require('./intercept_emitter')(added);
-module.exports.httpClientRequest = require('./intercept_http')(added);
+require('./intercept_http')(added);

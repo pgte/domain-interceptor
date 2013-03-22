@@ -4,6 +4,8 @@ var HttpClientRequest = http.ClientRequest;
 var HttpResponse = http.IncomingMessage;
 var oldHttpRequest = http.request;
 var oldHttpClientRequest = http.ClientRequest;
+
+if (! oldHttpClientRequest.__baseClass) oldHttpClientRequest.__baseClass = oldHttpClientRequest;
   
 module.exports =
 function InterceptHttp(addedCallback) {
@@ -37,5 +39,5 @@ function InterceptHttp(addedCallback) {
 
   inherits(newClientRequest, oldHttpClientRequest);
 
-  return oldHttpClientRequest;
+  newClientRequest.__baseClass = oldHttpClientRequest;
 };
